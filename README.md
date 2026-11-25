@@ -1,6 +1,8 @@
 # pubfingerprint: describe a publication record without ranking it
 
-[![DOI](https://zenodo.org/badge/DOI/ZENODO_DOI.svg)](https://doi.org/ZENODO_DOI) *(replace ZENODO_DOI after the first Zenodo release)*
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24541213.svg)](https://doi.org/10.5281/zenodo.24541213)
+
+**Web version (no installation):** https://tgossmann.github.io/pubfingerprint/ — enter an ORCID iD and get the profile in your browser.
 
 This software accompanies Gossmann, *Reading scientific careers without ranking them* (2026). From one spreadsheet of your papers, or from your ORCID iD, it produces:
 
