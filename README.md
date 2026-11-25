@@ -1,8 +1,8 @@
 # pubfingerprint: describe a publication record without ranking it
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24541213.svg)](https://doi.org/10.5281/zenodo.24541213)
+[![DOI](https://zenodo.org/badge/DOI/ZENODO_DOI.svg)](https://doi.org/ZENODO_DOI) *(replace ZENODO_DOI after the first Zenodo release)*
 
-This software accompanies Gossmann, *Forty-nine plus one: reading a scientific career without ranking it* (2026). From one spreadsheet of your papers, or from your ORCID iD, it produces:
+This software accompanies Gossmann, *Reading scientific careers without ranking them* (2026). From one spreadsheet of your papers, or from your ORCID iD, it produces:
 
 | Output | What it shows |
 |---|---|
@@ -15,8 +15,6 @@ This software accompanies Gossmann, *Forty-nine plus one: reading a scientific c
 | `*_results.json` | All numbers, including rarefied values, rolling-window profiles and network statistics |
 
 None of these numbers is a score. Higher diversity is a mathematical property of a record, not evidence of greater quality. The numbers describe how a record is composed, they have no universally desirable direction, and they should never be combined into one index. Rarefied values make diversity comparable with respect to the number of papers only, not with respect to career stage, field or opportunity.
-
-**Web version:** enter an ORCID iD at https://tgossmann.github.io/pubfingerprint/ (runs in your browser; nothing is stored).
 
 ## Install
 

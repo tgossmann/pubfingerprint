@@ -4,9 +4,6 @@ title: "pubfingerprint: describing a publication record without ranking it"
 version: 1.0.0
 date-released: 2026-11-24
 license: MIT
-doi: "10.5281/zenodo.24541213"
-repository-code: "https://github.com/tgossmann/pubfingerprint"
-url: "https://tgossmann.github.io/pubfingerprint/"
 authors:
   - family-names: Gossmann
     given-names: Toni I.
@@ -20,7 +17,7 @@ keywords:
   - co-authorship networks
 preferred-citation:
   type: article
-  title: "Forty-nine plus one: reading a scientific career without ranking it"
+  title: "Reading scientific careers without ranking them"
   authors:
     - family-names: Gossmann
       given-names: Toni I.
