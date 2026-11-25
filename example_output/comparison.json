@@ -1,0 +1,907 @@
+{
+ "This record (real)": {
+  "diversity": {
+   "Co-authors": {
+    "n": 312.0,
+    "richness": 235.0,
+    "q1": 203.1669399693479,
+    "q2": 163.3288590604027,
+    "top_share": 0.022435897435897436
+   },
+   "Co-authors (fractional)": {
+    "n": 49.0,
+    "richness": 235.0,
+    "q1": 110.31750382176186,
+    "q2": 53.84662107096728,
+    "top_share": 0.08163265306122448
+   },
+   "Senior / corresponding authors": {
+    "n": 53.0,
+    "richness": 31.0,
+    "q1": 25.55568889621566,
+    "q2": 20.8074074074074,
+    "top_share": 0.11320754716981132
+   },
+   "Venues": {
+    "n": 50.0,
+    "richness": 32.0,
+    "q1": 26.750016572533575,
+    "q2": 21.929824561403507,
+    "top_share": 0.1
+   },
+   "Countries": {
+    "n": 134.0,
+    "richness": 24.0,
+    "q1": 10.745341327029314,
+    "q2": 6.358356940509916,
+    "top_share": 0.26865671641791045
+   },
+   "Research lines": {
+    "n": 50.0,
+    "richness": 7.0,
+    "q1": 6.757013486233363,
+    "q2": 6.510416666666666,
+    "top_share": 0.22
+   },
+   "Approaches": {
+    "n": 84.0,
+    "richness": 6.0,
+    "q1": 4.824168432812671,
+    "q2": 4.225149700598802,
+    "top_share": 0.36904761904761907
+   }
+  },
+  "fingerprint": [
+   [
+    "Own role",
+    [
+     [
+      "First / co-first",
+      18
+     ],
+     [
+      "Senior / corresp.",
+      12
+     ],
+     [
+      "Middle",
+      20
+     ]
+    ]
+   ],
+   [
+    "Team size",
+    [
+     [
+      "≤3 authors",
+      16
+     ],
+     [
+      "4–9",
+      22
+     ],
+     [
+      "≥10",
+      12
+     ]
+    ]
+   ],
+   [
+    "Credit",
+    [
+     [
+      "Single first & corresp.",
+      34
+     ],
+     [
+      "Shared first and/or corresp.",
+      16
+     ]
+    ]
+   ],
+   [
+    "Co-author slots",
+    [
+     [
+      "One-off collaborators",
+      194
+     ],
+     [
+      "Recurring collaborators",
+      118
+     ]
+    ]
+   ],
+   [
+    "Countries per paper",
+    [
+     [
+      "1",
+      9
+     ],
+     [
+      "2–3",
+      32
+     ],
+     [
+      "≥4",
+      9
+     ]
+    ]
+   ],
+   [
+    "Approaches per paper",
+    [
+     [
+      "1",
+      20
+     ],
+     [
+      "2",
+      26
+     ],
+     [
+      "3",
+      4
+     ]
+    ]
+   ],
+   [
+    "Research line",
+    [
+     [
+      "Molecular evolution & Ne",
+      11
+     ],
+     [
+      "NAD metabolism & ageing",
+      9
+     ],
+     [
+      "Avian genomics",
+      7
+     ],
+     [
+      "Population-genetic theory",
+      6
+     ],
+     [
+      "Systems collaborations",
+      6
+     ],
+     [
+      "Epigenetics, individualisation & meta-science",
+      6
+     ],
+     [
+      "Mammal genomes & NUMTs",
+      5
+     ]
+    ]
+   ]
+  ],
+  "summary": {
+   "papers": 50,
+   "years": [
+    2010,
+    2026
+   ],
+   "distinct_coauthors": 235,
+   "coauthors_once": 194,
+   "collaborators_spanning_5y": 12,
+   "links": 104,
+   "links_across_lines": 49,
+   "network_density": 0.085,
+   "components": 7,
+   "largest_component": 37
+  }
+ },
+ "Focused theorist (sim.)": {
+  "diversity": {
+   "Co-authors": {
+    "n": 66.0,
+    "richness": 9.0,
+    "q1": 3.808304856504738,
+    "q2": 2.4749999999999996,
+    "top_share": 0.6060606060606061
+   },
+   "Co-authors (fractional)": {
+    "n": 46.0,
+    "richness": 9.0,
+    "q1": 3.3090207604721247,
+    "q2": 2.1427848101265825,
+    "top_share": 0.6630434782608695
+   },
+   "Senior / corresponding authors": {
+    "n": 25.0,
+    "richness": 5.0,
+    "q1": 3.8350264718103255,
+    "q2": 3.0193236714975837,
+    "top_share": 0.52
+   },
+   "Venues": {
+    "n": 50.0,
+    "richness": 5.0,
+    "q1": 2.7979313614767087,
+    "q2": 2.0938023450586263,
+    "top_share": 0.66
+   },
+   "Countries": {
+    "n": 67.0,
+    "richness": 3.0,
+    "q1": 2.099777461986905,
+    "q2": 1.697164461247637,
+    "top_share": 0.746268656716418
+   },
+   "Research lines": {
+    "n": 50.0,
+    "richness": 2.0,
+    "q1": 1.6936872575238313,
+    "q2": 1.522533495736906,
+    "top_share": 0.78
+   },
+   "Approaches": {
+    "n": 60.0,
+    "richness": 2.0,
+    "q1": 1.5691925832141966,
+    "q2": 1.3846153846153844,
+    "top_share": 0.8333333333333334
+   }
+  },
+  "fingerprint": [
+   [
+    "Own role",
+    [
+     [
+      "First / co-first",
+      26
+     ],
+     [
+      "Senior / corresp.",
+      21
+     ],
+     [
+      "Middle",
+      3
+     ]
+    ]
+   ],
+   [
+    "Team size",
+    [
+     [
+      "≤3 authors",
+      50
+     ],
+     [
+      "4–9",
+      0
+     ],
+     [
+      "≥10",
+      0
+     ]
+    ]
+   ],
+   [
+    "Credit",
+    [
+     [
+      "Single first & corresp.",
+      50
+     ],
+     [
+      "Shared first and/or corresp.",
+      0
+     ]
+    ]
+   ],
+   [
+    "Co-author slots",
+    [
+     [
+      "One-off collaborators",
+      4
+     ],
+     [
+      "Recurring collaborators",
+      62
+     ]
+    ]
+   ],
+   [
+    "Countries per paper",
+    [
+     [
+      "1",
+      33
+     ],
+     [
+      "2–3",
+      17
+     ],
+     [
+      "≥4",
+      0
+     ]
+    ]
+   ],
+   [
+    "Approaches per paper",
+    [
+     [
+      "1",
+      40
+     ],
+     [
+      "2",
+      10
+     ]
+    ]
+   ],
+   [
+    "Research line",
+    [
+     [
+      "Line 1",
+      39
+     ],
+     [
+      "Line 2",
+      11
+     ]
+    ]
+   ]
+  ],
+  "summary": {
+   "papers": 50,
+   "years": [
+    2010,
+    2026
+   ],
+   "distinct_coauthors": 9,
+   "coauthors_once": 4,
+   "collaborators_spanning_5y": 4,
+   "links": 812,
+   "links_across_lines": 249,
+   "network_density": 0.663,
+   "components": 5,
+   "largest_component": 46
+  }
+ },
+ "Specialised experimental PI (sim.)": {
+  "diversity": {
+   "Co-authors": {
+    "n": 287.0,
+    "richness": 65.0,
+    "q1": 35.893155375826154,
+    "q2": 24.434589142687628,
+    "top_share": 0.11846689895470383
+   },
+   "Co-authors (fractional)": {
+    "n": 50.0,
+    "richness": 65.0,
+    "q1": 32.73727959195324,
+    "q2": 21.801030056650045,
+    "top_share": 0.1327857142857143
+   },
+   "Senior / corresponding authors": {
+    "n": 12.0,
+    "richness": 10.0,
+    "q1": 9.5244063118092,
+    "q2": 9.0,
+    "top_share": 0.16666666666666666
+   },
+   "Venues": {
+    "n": 50.0,
+    "richness": 7.0,
+    "q1": 5.314438726351177,
+    "q2": 4.280821917808218,
+    "top_share": 0.4
+   },
+   "Countries": {
+    "n": 63.0,
+    "richness": 2.0,
+    "q1": 1.663758665478172,
+    "q2": 1.4870738104158863,
+    "top_share": 0.7936507936507936
+   },
+   "Research lines": {
+    "n": 50.0,
+    "richness": 2.0,
+    "q1": 1.8420227750373133,
+    "q2": 1.7241379310344829,
+    "top_share": 0.7
+   },
+   "Approaches": {
+    "n": 66.0,
+    "richness": 2.0,
+    "q1": 1.7399532229315982,
+    "q2": 1.5805515239477506,
+    "top_share": 0.7575757575757576
+   }
+  },
+  "fingerprint": [
+   [
+    "Own role",
+    [
+     [
+      "First / co-first",
+      9
+     ],
+     [
+      "Senior / corresp.",
+      38
+     ],
+     [
+      "Middle",
+      3
+     ]
+    ]
+   ],
+   [
+    "Team size",
+    [
+     [
+      "≤3 authors",
+      0
+     ],
+     [
+      "4–9",
+      50
+     ],
+     [
+      "≥10",
+      0
+     ]
+    ]
+   ],
+   [
+    "Credit",
+    [
+     [
+      "Single first & corresp.",
+      50
+     ],
+     [
+      "Shared first and/or corresp.",
+      0
+     ]
+    ]
+   ],
+   [
+    "Co-author slots",
+    [
+     [
+      "One-off collaborators",
+      38
+     ],
+     [
+      "Recurring collaborators",
+      249
+     ]
+    ]
+   ],
+   [
+    "Countries per paper",
+    [
+     [
+      "1",
+      37
+     ],
+     [
+      "2–3",
+      13
+     ],
+     [
+      "≥4",
+      0
+     ]
+    ]
+   ],
+   [
+    "Approaches per paper",
+    [
+     [
+      "1",
+      34
+     ],
+     [
+      "2",
+      16
+     ]
+    ]
+   ],
+   [
+    "Research line",
+    [
+     [
+      "Line 1",
+      35
+     ],
+     [
+      "Line 2",
+      15
+     ]
+    ]
+   ]
+  ],
+  "summary": {
+   "papers": 50,
+   "years": [
+    2010,
+    2026
+   ],
+   "distinct_coauthors": 65,
+   "coauthors_once": 38,
+   "collaborators_spanning_5y": 7,
+   "links": 888,
+   "links_across_lines": 365,
+   "network_density": 0.725,
+   "components": 1,
+   "largest_component": 50
+  }
+ },
+ "Large-consortium member (sim.)": {
+  "diversity": {
+   "Co-authors": {
+    "n": 1210.0,
+    "richness": 191.0,
+    "q1": 70.32565018054808,
+    "q2": 50.69247282044181,
+    "top_share": 0.02975206611570248
+   },
+   "Co-authors (fractional)": {
+    "n": 50.0,
+    "richness": 191.0,
+    "q1": 57.70734786791101,
+    "q2": 43.424083200591205,
+    "top_share": 0.03554377002339146
+   },
+   "Senior / corresponding authors": {
+    "n": 45.0,
+    "richness": 30.0,
+    "q1": 25.40388425353895,
+    "q2": 20.87628865979381,
+    "top_share": 0.1111111111111111
+   },
+   "Venues": {
+    "n": 50.0,
+    "richness": 14.0,
+    "q1": 9.410705948619762,
+    "q2": 6.756756756756756,
+    "top_share": 0.3
+   },
+   "Countries": {
+    "n": 239.0,
+    "richness": 20.0,
+    "q1": 15.244288370820612,
+    "q2": 11.435635635635636,
+    "top_share": 0.20920502092050208
+   },
+   "Research lines": {
+    "n": 50.0,
+    "richness": 3.0,
+    "q1": 2.825857213975399,
+    "q2": 2.6824034334763946,
+    "top_share": 0.48
+   },
+   "Approaches": {
+    "n": 100.0,
+    "richness": 2.0,
+    "q1": 2.0,
+    "q2": 2.0,
+    "top_share": 0.5
+   }
+  },
+  "fingerprint": [
+   [
+    "Own role",
+    [
+     [
+      "First / co-first",
+      2
+     ],
+     [
+      "Senior / corresp.",
+      5
+     ],
+     [
+      "Middle",
+      43
+     ]
+    ]
+   ],
+   [
+    "Team size",
+    [
+     [
+      "≤3 authors",
+      0
+     ],
+     [
+      "4–9",
+      0
+     ],
+     [
+      "≥10",
+      50
+     ]
+    ]
+   ],
+   [
+    "Credit",
+    [
+     [
+      "Single first & corresp.",
+      50
+     ],
+     [
+      "Shared first and/or corresp.",
+      0
+     ]
+    ]
+   ],
+   [
+    "Co-author slots",
+    [
+     [
+      "One-off collaborators",
+      130
+     ],
+     [
+      "Recurring collaborators",
+      1080
+     ]
+    ]
+   ],
+   [
+    "Countries per paper",
+    [
+     [
+      "1",
+      0
+     ],
+     [
+      "2–3",
+      10
+     ],
+     [
+      "≥4",
+      40
+     ]
+    ]
+   ],
+   [
+    "Approaches per paper",
+    [
+     [
+      "2",
+      50
+     ]
+    ]
+   ],
+   [
+    "Research line",
+    [
+     [
+      "Line 1",
+      24
+     ],
+     [
+      "Line 2",
+      16
+     ],
+     [
+      "Line 3",
+      10
+     ]
+    ]
+   ]
+  ],
+  "summary": {
+   "papers": 50,
+   "years": [
+    2010,
+    2026
+   ],
+   "distinct_coauthors": 191,
+   "coauthors_once": 130,
+   "collaborators_spanning_5y": 49,
+   "links": 1225,
+   "links_across_lines": 784,
+   "network_density": 1.0,
+   "components": 1,
+   "largest_component": 50
+  }
+ },
+ "Interdisciplinary collaborator (sim.)": {
+  "diversity": {
+   "Co-authors": {
+    "n": 338.0,
+    "richness": 267.0,
+    "q1": 233.49977260234286,
+    "q2": 180.76582278481013,
+    "top_share": 0.03254437869822485
+   },
+   "Co-authors (fractional)": {
+    "n": 50.0,
+    "richness": 267.0,
+    "q1": 223.32032446369516,
+    "q2": 171.4308246668864,
+    "top_share": 0.03263636363636364
+   },
+   "Senior / corresponding authors": {
+    "n": 29.0,
+    "richness": 28.0,
+    "q1": 27.646318597452357,
+    "q2": 27.12903225806452,
+    "top_share": 0.06896551724137931
+   },
+   "Venues": {
+    "n": 50.0,
+    "richness": 25.0,
+    "q1": 19.673366395580008,
+    "q2": 15.4320987654321,
+    "top_share": 0.12
+   },
+   "Countries": {
+    "n": 120.0,
+    "richness": 13.0,
+    "q1": 7.568259907371648,
+    "q2": 4.690553745928338,
+    "top_share": 0.4166666666666667
+   },
+   "Research lines": {
+    "n": 50.0,
+    "richness": 7.0,
+    "q1": 6.854586746293344,
+    "q2": 6.720430107526881,
+    "top_share": 0.18
+   },
+   "Approaches": {
+    "n": 100.0,
+    "richness": 5.0,
+    "q1": 4.884475197052142,
+    "q2": 4.7664442326024785,
+    "top_share": 0.28
+   }
+  },
+  "fingerprint": [
+   [
+    "Own role",
+    [
+     [
+      "First / co-first",
+      15
+     ],
+     [
+      "Senior / corresp.",
+      21
+     ],
+     [
+      "Middle",
+      14
+     ]
+    ]
+   ],
+   [
+    "Team size",
+    [
+     [
+      "≤3 authors",
+      0
+     ],
+     [
+      "4–9",
+      36
+     ],
+     [
+      "≥10",
+      14
+     ]
+    ]
+   ],
+   [
+    "Credit",
+    [
+     [
+      "Single first & corresp.",
+      50
+     ],
+     [
+      "Shared first and/or corresp.",
+      0
+     ]
+    ]
+   ],
+   [
+    "Co-author slots",
+    [
+     [
+      "One-off collaborators",
+      226
+     ],
+     [
+      "Recurring collaborators",
+      112
+     ]
+    ]
+   ],
+   [
+    "Countries per paper",
+    [
+     [
+      "1",
+      2
+     ],
+     [
+      "2–3",
+      45
+     ],
+     [
+      "≥4",
+      3
+     ]
+    ]
+   ],
+   [
+    "Approaches per paper",
+    [
+     [
+      "2",
+      50
+     ]
+    ]
+   ],
+   [
+    "Research line",
+    [
+     [
+      "Line 5",
+      9
+     ],
+     [
+      "Line 4",
+      9
+     ],
+     [
+      "Line 7",
+      8
+     ],
+     [
+      "Line 2",
+      7
+     ],
+     [
+      "Line 1",
+      6
+     ],
+     [
+      "Line 6",
+      6
+     ],
+     [
+      "Line 3",
+      5
+     ]
+    ]
+   ]
+  ],
+  "summary": {
+   "papers": 50,
+   "years": [
+    2010,
+    2026
+   ],
+   "distinct_coauthors": 267,
+   "coauthors_once": 226,
+   "collaborators_spanning_5y": 18,
+   "links": 136,
+   "links_across_lines": 111,
+   "network_density": 0.111,
+   "components": 9,
+   "largest_component": 42
+  }
+ }
+}

@@ -1,0 +1,51 @@
+id,year,title,journal,line,authors,countries,corresponding,equal_first,approaches
+1,2010,Simulated paper 1,Journal 5,Line 1,Focal Researcher; Pino Sihazi; Sima Mibafu; Bihi Luculo,Neighbour; Home,Bihi Luculo,,experimental & omics data; comparative / molecular evolution
+2,2010,Simulated paper 2,Journal 1,Line 1,Liko Zeseco; Tamo Cimime; Bihi Luculo; Pino Sihazi; Pute Hakeko; Libo Nulebi; Sima Mibafu; Focal Researcher,Neighbour; Home,Focal Researcher,,experimental & omics data; comparative / molecular evolution
+3,2010,Simulated paper 3,Journal 6,Line 1,Bopu Fecomu; Tamo Cimime; Keti Zoloho; Pino Sihazi; Kage Vobofu; Sima Mibafu; Bihi Luculo; Focal Researcher,Neighbour; Home,Focal Researcher,,experimental & omics data; comparative / molecular evolution
+4,2010,Simulated paper 4,Journal 2,Line 1,Sima Mibafu; Focal Researcher; Tici Fuzitu; Kupe Dahazi; Hidi Cezoso; Pino Sihazi; Pute Hakeko; Tamo Cimime; Bihi Luculo,Home,Bihi Luculo,,experimental & omics data
+5,2011,Simulated paper 5,Journal 2,Line 1,Tamo Cimime; Bemu Gutoci; Pute Hakeko; Bihi Luculo; Sima Mibafu; Gede Hulaku; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+6,2011,Simulated paper 6,Journal 1,Line 2,Muki Zododu; Sima Mibafu; Nalo Pihoko; Bihi Luculo; Tamo Cimime; Divi Zocapo; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+7,2011,Simulated paper 7,Journal 1,Line 1,Sima Mibafu; Fafa Hibalo; Pute Hakeko; Pepu Lumitu; Cisi Dadiza; Fide Pubiba; Tamo Cimime; Geme Nokuno; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+8,2011,Simulated paper 8,Journal 2,Line 2,Fide Pubiba; Pepu Lumitu; Bubu Gakuka; Fafa Hibalo; Bosa Hedife; Tamo Cimime; Sima Mibafu; Focal Researcher,Neighbour; Home,Focal Researcher,,experimental & omics data
+9,2011,Simulated paper 9,Journal 1,Line 1,Fafa Hibalo; Pepu Lumitu; Pute Hakeko; Sima Mibafu; Focal Researcher,Neighbour; Home,Focal Researcher,,experimental & omics data
+10,2012,Simulated paper 10,Journal 2,Line 1,Focal Researcher; Pino Sihazi; Sima Mibafu; Fide Pubiba,Home,Focal Researcher,,experimental & omics data
+11,2012,Simulated paper 11,Journal 2,Line 2,Sima Mibafu; Fafa Hibalo; Pute Hakeko; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+12,2014,Simulated paper 12,Journal 7,Line 1,Fide Pubiba; Pepu Lumitu; Fafa Hibalo; Pute Hakeko; Tamo Cimime; Focal Researcher,Neighbour; Home,Focal Researcher,,experimental & omics data
+13,2014,Simulated paper 13,Journal 1,Line 1,Fafa Hibalo; Pute Hakeko; Gego Mekivu; Gaza Simodi; Fide Pubiba; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+14,2015,Simulated paper 14,Journal 1,Line 2,Hozo Rabelo; Fafa Hibalo; Focal Researcher; Fide Pubiba; Todi Narehi; Gaza Simodi; Tidi Botari; Gego Mekivu; Sidi Tutuno,Home,Sidi Tutuno,,experimental & omics data
+15,2015,Simulated paper 15,Journal 7,Line 1,Focal Researcher; Gego Mekivu; Pute Hakeko; Fafa Hibalo,Home,Focal Researcher,,experimental & omics data
+16,2015,Simulated paper 16,Journal 1,Line 2,Fide Pubiba; Gego Mekivu; Pino Sihazi; Focal Researcher,Home,Focal Researcher,,experimental & omics data; comparative / molecular evolution
+17,2015,Simulated paper 17,Journal 1,Line 2,Rine Numice; Pino Sihazi; Hobo Lihuze; Fafa Hibalo; Gego Mekivu; Hozo Rabelo; Gaza Simodi; Fide Pubiba; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+18,2016,Simulated paper 18,Journal 4,Line 1,Vepa Nolevi; Gego Mekivu; Pino Sihazi; Fide Pubiba; Hozo Rabelo; Gaza Simodi; Fafa Hibalo; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+19,2016,Simulated paper 19,Journal 3,Line 1,Focal Researcher; Gego Mekivu; Nade Rebihu; Mabi Cubuse; Hozo Rabelo; Feli Pelide; Pute Hakeko,Home,Pute Hakeko,,experimental & omics data
+20,2016,Simulated paper 20,Journal 5,Line 2,Gego Mekivu; Pino Sihazi; Hozo Rabelo; Focal Researcher,Neighbour; Home,Focal Researcher,,experimental & omics data; comparative / molecular evolution
+21,2017,Simulated paper 21,Journal 1,Line 1,Nade Rebihu; Feli Pelide; Gego Mekivu; Mabi Cubuse; Pute Hakeko; Hozo Rabelo; Focal Researcher,Neighbour; Home,Focal Researcher,,experimental & omics data
+22,2017,Simulated paper 22,Journal 1,Line 1,Feli Pelide; Gego Mekivu; Pute Hakeko; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+23,2018,Simulated paper 23,Journal 6,Line 1,Pute Hakeko; Mabi Cubuse; Hozo Rabelo; Nade Rebihu; Feli Pelide; Gego Mekivu; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+24,2018,Simulated paper 24,Journal 6,Line 2,Focal Researcher; Gego Mekivu; Pute Hakeko; Nade Rebihu,Home,Nade Rebihu,,experimental & omics data
+25,2018,Simulated paper 25,Journal 7,Line 1,Poto Bevuhu; Feli Pelide; Pute Hakeko; Loku Bekaze; Focal Researcher,Home,Focal Researcher,,experimental & omics data; comparative / molecular evolution
+26,2018,Simulated paper 26,Journal 6,Line 1,Poto Bevuhu; Pute Hakeko; Nade Rebihu; Loku Bekaze; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+27,2019,Simulated paper 27,Journal 2,Line 1,Pute Hakeko; Migo Fucace; Feli Pelide; Nade Rebihu; Loku Bekaze; Poto Bevuhu; Focal Researcher,Neighbour; Home,Focal Researcher,,experimental & omics data; comparative / molecular evolution
+28,2020,Simulated paper 28,Journal 3,Line 2,Rimo Tuposu; Poto Bevuhu; Nade Rebihu; Pino Sihazi; Migo Fucace; Feli Pelide; Pute Hakeko; Loku Bekaze; Focal Researcher,Home,Focal Researcher,,experimental & omics data; comparative / molecular evolution
+29,2020,Simulated paper 29,Journal 1,Line 2,Migo Fucace; Nade Rebihu; Poto Bevuhu; Pute Hakeko; Lezi Fohasu; Feli Pelide; Sosa Sekica; Loku Bekaze; Focal Researcher,Neighbour; Home,Focal Researcher,,experimental & omics data
+30,2021,Simulated paper 30,Journal 7,Line 1,Migo Fucace; Pute Hakeko; Nade Rebihu; Poto Bevuhu; Loku Bekaze; Feli Pelide; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+31,2021,Simulated paper 31,Journal 3,Line 2,Recu Gigomi; Vole Rikiro; Focal Researcher; Pute Hakeko; Loku Bekaze; Migo Fucace; Bina Polofe,Home,Bina Polofe,,experimental & omics data; comparative / molecular evolution
+32,2022,Simulated paper 32,Journal 5,Line 1,Focal Researcher; Vole Rikiro; Pute Hakeko; Recu Gigomi; Bina Polofe,Neighbour; Home,Bina Polofe,,experimental & omics data
+33,2022,Simulated paper 33,Journal 3,Line 1,Recu Gigomi; Bina Polofe; Migo Fucace; Vole Rikiro; Loku Bekaze; Pino Sihazi; Pute Hakeko; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+34,2022,Simulated paper 34,Journal 2,Line 1,Bina Polofe; Pute Hakeko; Migo Fucace; Recu Gigomi; Vole Rikiro; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+35,2022,Simulated paper 35,Journal 1,Line 1,Vole Rikiro; Pino Sihazi; Migo Fucace; Loku Bekaze; Bina Polofe; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+36,2023,Simulated paper 36,Journal 5,Line 1,Focal Researcher; Migo Fucace; Vole Rikiro; Pute Hakeko; Recu Gigomi; Kako Bigoba; Loku Bekaze; Bina Polofe; Pino Sihazi,Home,Focal Researcher,,experimental & omics data; comparative / molecular evolution
+37,2023,Simulated paper 37,Journal 2,Line 1,Bina Polofe; Bife Mavapa; Pute Hakeko; Vole Rikiro; Fiko Tipedu; Pino Sihazi; Supe Logibi; Solu Fovupe; Focal Researcher,Home,Focal Researcher,,experimental & omics data; comparative / molecular evolution
+38,2023,Simulated paper 38,Journal 1,Line 1,Tuma Liriki; Bife Mavapa; Bina Polofe; Focal Researcher,Home,Focal Researcher,,experimental & omics data; comparative / molecular evolution
+39,2024,Simulated paper 39,Journal 2,Line 1,Fiko Tipedu; Hupe Cekeki; Bife Mavapa; Vole Rikiro; Supe Logibi; Bina Polofe; Pino Sihazi; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+40,2024,Simulated paper 40,Journal 1,Line 1,Bina Polofe; Vole Rikiro; Supe Logibi; Pino Sihazi; Fiko Tipedu; Fiso Sizasa; Bife Mavapa; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+41,2024,Simulated paper 41,Journal 3,Line 1,Supe Logibi; Vole Rikiro; Pute Hakeko; Bife Mavapa; Bina Polofe; Pino Sihazi; Fiko Tipedu; Focal Researcher,Neighbour; Home,Focal Researcher,,experimental & omics data
+42,2024,Simulated paper 42,Journal 1,Line 2,Focal Researcher; Fiko Tipedu; Vole Rikiro; Bina Polofe; Pino Sihazi; Bife Mavapa; Pute Hakeko; Supe Logibi,Home,Supe Logibi,,experimental & omics data
+43,2025,Simulated paper 43,Journal 1,Line 1,Pino Sihazi; Nase Sinisi; Pute Hakeko; Fiko Tipedu; Kutu Ruhola; Talo Halizo; Bife Mavapa; Mone Fisegu; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+44,2025,Simulated paper 44,Journal 1,Line 1,Pute Hakeko; Nase Sinisi; Talo Halizo; Fiko Tipedu; Mone Fisegu; Bife Mavapa; Focal Researcher,Home,Focal Researcher,,experimental & omics data; comparative / molecular evolution
+45,2026,Simulated paper 45,Journal 7,Line 2,Pino Sihazi; Talo Halizo; Vaso Cadodo; Nase Sinisi; Sobe Lifoge; Bife Mavapa; Fiko Tipedu; Mone Fisegu; Focal Researcher,Home,Focal Researcher,,experimental & omics data; comparative / molecular evolution
+46,2026,Simulated paper 46,Journal 7,Line 1,Talo Halizo; Bife Mavapa; Pino Sihazi; Pute Hakeko; Mone Fisegu; Nase Sinisi; Fiko Tipedu; Focal Researcher,Home,Focal Researcher,,experimental & omics data; comparative / molecular evolution
+47,2026,Simulated paper 47,Journal 1,Line 2,Talo Halizo; Mone Fisegu; Bife Mavapa; Pute Hakeko; Focal Researcher,Home,Focal Researcher,,experimental & omics data
+48,2026,Simulated paper 48,Journal 6,Line 2,Focal Researcher; Talo Halizo; Nase Sinisi; Pute Hakeko; Bife Mavapa; Mone Fisegu,Neighbour; Home,Mone Fisegu,,experimental & omics data
+49,2026,Simulated paper 49,Journal 1,Line 1,Nase Sinisi; Soru Nedogu; Pute Hakeko; Focal Researcher,Home,Focal Researcher,,experimental & omics data; comparative / molecular evolution
+50,2026,Simulated paper 50,Journal 1,Line 1,Riho Sogiti; Soru Nedogu; Givi Gatumo; Hufu Monomo; Nase Sinisi; Pino Sihazi; Mone Fisegu; Caku Luriga; Focal Researcher,Home,Focal Researcher,,experimental & omics data

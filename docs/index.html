@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pubfingerprint · a publication profile without a score</title>
+<meta name="description" content="Enter an ORCID iD and get a descriptive profile of a publication record: roles, team sizes, collaborators, venues, countries, topics, their diversity and how they connect. No scores, no citations. Runs entirely in your browser.">
+<style>
+  :root {
+    --ink: #1f1f1d; --ink2: #5c5b57; --muted: #8a8985; --line: #e3e1dc; --bg: #fbfaf7; --card: #ffffff;
+    --accent: #2a78d6; --accent2: #eb6834; --ok: #1baf7a; --warn: #b36b00;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.55 "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--bg); }
+  main { max-width: 980px; margin: 0 auto; padding: 40px 22px 80px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 6px; letter-spacing: -0.01em; }
+  h1 span { color: var(--accent); }
+  .lede { color: var(--ink2); font-size: 17px; margin: 0 0 26px; max-width: 760px; }
+  form { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 14px; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: end; }
+  label { display: grid; gap: 4px; font-size: 13px; color: var(--ink2); flex: 1 1 220px; }
+  input[type=text], input[type=email] { font: inherit; padding: 10px 12px; border: 1px solid #cfcdc7; border-radius: 9px; background: #fff; }
+  input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  button { font: inherit; font-weight: 600; padding: 10px 20px; border: 0; border-radius: 9px; background: var(--accent); color: #fff; cursor: pointer; }
+  button:disabled { background: #9db9dd; cursor: progress; }
+  button.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  button.ghost:disabled { color: #9db9dd; border-color: #9db9dd; background: transparent; }
+  .check { flex-direction: row; display: flex; gap: 8px; align-items: center; flex: 0 0 auto; font-size: 14px; color: var(--ink2); }
+  .fine { font-size: 13px; color: var(--muted); margin: 0; }
+  #status { margin: 18px 2px; min-height: 24px; color: var(--ink2); display: flex; gap: 10px; align-items: center; }
+  #status.err { color: #b3261e; }
+  .spin { width: 16px; height: 16px; border: 2px solid #cfcdc7; border-top-color: var(--accent); border-radius: 50%; animation: s 0.9s linear infinite; }
+  @keyframes s { to { transform: rotate(360deg); } }
+  #out { display: none; }
+  .who { font-size: 24px; font-weight: 650; margin: 8px 0 2px; }
+  .sub { color: var(--ink2); margin: 0 0 18px; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: 18px; }
+  .tile { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+  .tile b { display: block; font-size: 22px; font-weight: 650; }
+  .tile span { font-size: 13px; color: var(--ink2); }
+  .note { background: #fff8e8; border: 1px solid #f1dfb2; border-radius: 12px; padding: 12px 16px; font-size: 14px; color: #5b4a1d; margin-bottom: 18px; }
+  details { margin-top: 6px; } summary { cursor: pointer; }
+  .downloads { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 26px; }
+  .downloads a { text-decoration: none; font-size: 14px; padding: 8px 14px; border-radius: 9px; border: 1px solid var(--line); background: var(--card); color: var(--ink); }
+  .downloads a.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+  section.fig { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; margin-bottom: 16px; }
+  section.fig h3 { margin: 0 0 4px; font-size: 17px; }
+  section.fig p { margin: 0 0 10px; color: var(--ink2); font-size: 14px; }
+  section.fig img { width: 100%; height: auto; display: block; }
+  .two { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  footer { margin-top: 40px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
+  a { color: var(--accent); }
+  .principle { border-left: 3px solid var(--accent2); padding: 2px 0 2px 12px; margin: 22px 0; color: var(--ink2); font-size: 15px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>A publication profile, <span>not a score</span></h1>
+  <p class="lede">Enter an ORCID iD to see how a publication record is composed: roles in the author list, team sizes,
+    collaborators, venues, countries and topics, how diverse they are, how they changed over time and how topics and people connect.
+    No citations, no rankings, no index.</p>
+
+  <form id="f" autocomplete="on">
+    <div class="row">
+      <label>ORCID iD
+        <input id="orcid" type="text" placeholder="0000-0002-1825-0097" required pattern="\s*(https?://orcid\.org/)?\d{4}-\d{4}-\d{4}-\d{3}[\dXx]\s*">
+      </label>
+      <label>Your e-mail (optional; sent only to OpenAlex, which asks for it)
+        <input id="mailto" type="email" placeholder="you@university.edu">
+      </label>
+    </div>
+    <div class="row">
+      <label class="check"><input id="pre" type="checkbox"> include preprints</label>
+      <div style="flex:1"></div>
+      <button id="demo" type="button" class="ghost">Try an example</button>
+      <button id="go" type="submit">Draw the profile</button>
+    </div>
+    <p class="fine">Everything runs in your browser. The public ORCID record and the matching OpenAlex entries are fetched directly from
+      their open APIs; nothing is sent to us or stored.</p>
+  </form>
+
+  <div id="status"></div>
+
+  <div id="out">
+    <div class="who" id="who"></div>
+    <p class="sub" id="sub"></p>
+    <div class="tiles" id="tiles"></div>
+    <div class="note" id="report"></div>
+    <div class="downloads" id="dl"></div>
+    <div class="two" id="figs"></div>
+  </div>
+
+  <p class="principle">A profile describes how a record is composed. Higher diversity is a mathematical property, not a sign of quality,
+    and a focused record is not a lesser one. Please do not rank people with it or combine its dimensions into one number,
+    and read it together with the person's own account of their work.</p>
+
+  <footer>
+    pubfingerprint · <a href="https://github.com/tgossmann/pubfingerprint">open source (MIT)</a> · data from <a href="https://orcid.org">ORCID</a> and <a href="https://openalex.org">OpenAlex</a>.
+    The profile is only as complete as the ORCID record: works without a DOI or missing from ORCID do not appear.
+    Shared first authorship cannot be retrieved automatically. For full control, download the CSV, correct or complete it,
+    and run the command-line version.
+    <br>Citation: Gossmann TI (2026) Forty-nine plus one: reading a scientific career without ranking it.
+  </footer>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let worker = null, urls = [];
+
+const FIGS = [
+  ["fingerprint.png", "Composition", "Each bar adds up to 100%: role in the author list, team size, credit sharing, recurring and one-off collaborators, countries per paper and research lines (OpenAlex subfields)."],
+  ["roles.png", "Role by career period", "Position in the author list per period: first author (≈ specialized), last or corresponding (≈ leader), middle (≈ supporting). A trajectory, not a type."],
+  ["diversity.png", "Diversity profile", "Richness and effective numbers (Hill numbers): how many collaborators, venues, countries and topics, and how evenly the work is spread among them."],
+  ["rarefaction.png", "Diversity as the record grows", "Compare records at the same number of papers, never by totals; curves still rising at the end depend on record length."],
+  ["map.png", "Connections", "Papers (or, for large records, research lines) linked when they share a co-author other than the person: what someone works on, and with whom."],
+];
+
+function setStatus(msg, busy = true, err = false) {
+  $("status").className = err ? "err" : "";
+  $("status").innerHTML = (busy ? '<div class="spin"></div>' : "") + "<span></span>";
+  $("status").querySelector("span").textContent = msg;
+}
+
+function tile(v, label) { return `<div class="tile"><b>${v}</b><span>${label}</span></div>`; }
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function show(rep, files, orcid) {
+  urls.forEach(URL.revokeObjectURL); urls = [];
+  const blob = (name, type) => { const u = URL.createObjectURL(new Blob([files[name]], { type })); urls.push(u); return u; };
+  const S = rep.summary, D = rep.diversity;
+  $("who").textContent = rep.display || orcid;
+  $("sub").textContent = `${S.papers} papers, ${S.years[0]}–${S.years[1]} · ORCID ${orcid}`;
+  const eff = (k) => (D[k] ? `${D[k].richness.toFixed(0)} <small style="font-size:13px;font-weight:400">(eff. ${D[k].q1.toFixed(1)})</small>` : "–");
+  $("tiles").innerHTML = [
+    tile(S.distinct_coauthors, `co-authors (${S.coauthors_once} on one paper only)`),
+    tile(eff("Venues"), "venues"),
+    tile(eff("Countries"), "countries"),
+    tile(eff("Research lines"), "research lines"),
+    tile(`${rep.temporal.switches}`, `topic switches (random order ${rep.temporal.random_order_95[0]}–${rep.temporal.random_order_95[1]})`),
+    tile(rep.roles.length ? rep.roles[rep.roles.length - 1].label.replace("mostly ", "") : "–", `role, ${rep.roles.length ? rep.roles[rep.roles.length - 1].period : ""}`),
+  ].join("");
+  const left = [["no DOI", rep.no_doi], ["not found in OpenAlex", rep.not_in_openalex], ["preprints without a published version", rep.preprints], ["corrections or errata", rep.corrections]]
+    .filter(([, l]) => l && l.length);
+  $("report").innerHTML = `Recognised on <b>${rep.recognised} of ${rep.kept}</b> works (as ${esc(rep.me.slice(0, 4).join("; "))}).
+    ${left.length ? `Left out: ${left.map(([k, l]) => `${l.length} ${k}`).join(", ")}.
+      <details><summary>Show left-out works</summary><ul>${left.map(([k, l]) => l.map((t) => `<li>${esc(t || "(untitled)")} <i>(${k})</i></li>`).join("")).join("")}</ul></details>` : "Nothing was left out."}
+    Works missing from the ORCID record cannot appear here.`;
+  const P = orcid + "_";
+  $("dl").innerHTML = [
+    files[P + "profile.pdf"] && `<a class="primary" download="${P}profile.pdf" href="${blob(P + "profile.pdf", "application/pdf")}">Download the two-page profile (PDF)</a>`,
+    files[P + "from_orcid.csv"] && `<a download="${P}papers.csv" href="${blob(P + "from_orcid.csv", "text/csv")}">Papers (CSV)</a>`,
+    files[P + "results.json"] && `<a download="${P}results.json" href="${blob(P + "results.json", "application/json")}">All numbers (JSON)</a>`,
+    files[P + "diversity.csv"] && `<a download="${P}diversity.csv" href="${blob(P + "diversity.csv", "text/csv")}">Diversity table (CSV)</a>`,
+  ].filter(Boolean).join("");
+  $("figs").innerHTML = FIGS.filter(([f]) => files[P + f]).map(([f, h, p]) =>
+    `<section class="fig"><h3>${h}</h3><p>${p}</p><img alt="${h}" src="${blob(P + f, "image/png")}"></section>`).join("");
+  $("out").style.display = "block";
+}
+
+function start(orcid, demo) {
+  $("go").disabled = true; $("demo").disabled = true; $("out").style.display = "none";
+  if (!worker) worker = new Worker("worker.js");
+  const t0 = Date.now();
+  worker.onmessage = (ev) => {
+    const d = ev.data;
+    if (d.type === "status") setStatus(d.msg);
+    else if (d.type === "done") { setStatus(`Done in ${Math.round((Date.now() - t0) / 1000)} s.`, false); show(d.report, d.files, orcid); $("go").disabled = false; $("demo").disabled = false; }
+    else if (d.type === "error") { setStatus("Something went wrong: " + d.msg, false, true); $("go").disabled = false; $("demo").disabled = false; }
+  };
+  worker.onerror = (e) => { setStatus("The browser could not start the analysis: " + (e.message || e), false, true); $("go").disabled = false; $("demo").disabled = false; };
+  worker.postMessage({ orcid, demo, mailto: $("mailto").value.trim(), includePreprints: $("pre").checked });
+}
+$("f").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const m = $("orcid").value.match(/\d{4}-\d{4}-\d{4}-\d{3}[\dXx]/);
+  if (!m) { setStatus("Please enter an ORCID iD such as 0000-0002-1825-0097.", false, true); return; }
+  start(m[0].toUpperCase(), false);
+});
+$("demo").addEventListener("click", () => { $("orcid").value = "0000-0001-6609-4116"; start("0000-0001-6609-4116", true); });
+</script>
+</body>
+</html>

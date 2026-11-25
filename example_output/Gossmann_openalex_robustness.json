@@ -1,0 +1,101 @@
+{
+ "line": {
+  "n_lines": 7,
+  "q1": 6.757013486233363,
+  "papers_to_90pct_q1": 20,
+  "coauthors_papers_to_90pct_q1": 45,
+  "switches": 40,
+  "mean_run_length": 1.2195121951219512,
+  "observed": {
+   "modularity": 0.3869271969847253,
+   "cross_share": 0.47115384615384615,
+   "ari_vs_network": 0.19161139119506623
+  },
+  "null_modularity": {
+   "mean": -0.02431593433842491,
+   "lo": -0.08515237552073,
+   "hi": 0.04791398036103947,
+   "p_extreme": 0.0
+  },
+  "null_cross_share": {
+   "mean": 0.8627211538461538,
+   "lo": 0.7980769230769231,
+   "hi": 0.9230769230769231,
+   "p_extreme": 0.0
+  },
+  "null_ari_vs_network": {
+   "mean": 0.0001124514166209834,
+   "lo": -0.04614996433579666,
+   "hi": 0.06084264565309164,
+   "p_extreme": 0.0
+  }
+ },
+ "line_openalex_subfield": {
+  "n_lines": 11,
+  "q1": 5.444410077787145,
+  "papers_to_90pct_q1": 30,
+  "coauthors_papers_to_90pct_q1": 45,
+  "switches": 39,
+  "mean_run_length": 1.25,
+  "observed": {
+   "modularity": 0.1199166831977782,
+   "cross_share": 0.5192307692307693,
+   "ari_vs_network": 0.19070793802708846
+  },
+  "null_modularity": {
+   "mean": -0.022191876611783377,
+   "lo": -0.0905344921642531,
+   "hi": 0.05695608510216227,
+   "p_extreme": 0.0
+  },
+  "null_cross_share": {
+   "mean": 0.7530961538461539,
+   "lo": 0.6634615384615384,
+   "hi": 0.8269230769230769,
+   "p_extreme": 0.0
+  },
+  "null_ari_vs_network": {
+   "mean": -0.0006742082412270447,
+   "lo": -0.06086085543076675,
+   "hi": 0.08628315583703536,
+   "p_extreme": 0.0
+  }
+ },
+ "line_openalex_topic": {
+  "n_lines": 23,
+  "q1": 15.181640651710243,
+  "papers_to_90pct_q1": 40,
+  "coauthors_papers_to_90pct_q1": 45,
+  "switches": 46,
+  "mean_run_length": 1.0638297872340425,
+  "observed": {
+   "modularity": 0.18862824836341996,
+   "cross_share": 0.625,
+   "ari_vs_network": 0.2484662576687116
+  },
+  "null_modularity": {
+   "mean": -0.0270492213846459,
+   "lo": -0.06948522118627257,
+   "hi": 0.028942670105137864,
+   "p_extreme": 0.0
+  },
+  "null_cross_share": {
+   "mean": 0.9152115384615386,
+   "lo": 0.8555288461538462,
+   "hi": 0.9615384615384616,
+   "p_extreme": 0.0
+  },
+  "null_ari_vs_network": {
+   "mean": 1.7254601226993183e-05,
+   "lo": -0.05348926380368098,
+   "hi": 0.08742331288343558,
+   "p_extreme": 0.0
+  }
+ },
+ "network_partition": {
+  "groups": 7,
+  "modularity": 0.6720888712557033,
+  "cross_share": 0.04807692307692308,
+  "ari_vs_network": 1.0
+ }
+}

@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "pubfingerprint: describing a publication record without ranking it"
+version: 1.0.0
+date-released: 2026-11-24
+license: MIT
+repository-code: "https://github.com/tgossmann/pubfingerprint"
+url: "https://tgossmann.github.io/pubfingerprint/"
+authors:
+  - family-names: Gossmann
+    given-names: Toni I.
+    orcid: "https://orcid.org/0000-0001-6609-4116"
+    affiliation: "TU Dortmund University"
+keywords:
+  - research assessment
+  - responsible metrics
+  - Hill numbers
+  - rarefaction
+  - co-authorship networks
+preferred-citation:
+  type: article
+  title: "Forty-nine plus one: reading a scientific career without ranking it"
+  authors:
+    - family-names: Gossmann
+      given-names: Toni I.
+      orcid: "https://orcid.org/0000-0001-6609-4116"
+  year: 2026

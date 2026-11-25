@@ -1,0 +1,51 @@
+id,year,title,journal,line,authors,countries,corresponding,equal_first,approaches
+1,2010,Simulated paper 1,Journal 1,Line 1,Heme Hibana; Focal Researcher,Home,Focal Researcher,,theory & modelling
+2,2010,Simulated paper 2,Journal 1,Line 1,Nile Tecesa; Heme Hibana; Focal Researcher,Home,Focal Researcher,,theory & modelling
+3,2010,Simulated paper 3,Journal 1,Line 1,Tidi Moride; Focal Researcher,Home,Focal Researcher,,theory & modelling; comparative / molecular evolution
+4,2010,Simulated paper 4,Journal 1,Line 1,Focal Researcher; Heme Hibana; Tidi Moride,Home; Third,Focal Researcher,,theory & modelling
+5,2010,Simulated paper 5,Journal 1,Line 1,Focal Researcher; Nile Tecesa; Heme Hibana,Home,Focal Researcher,,theory & modelling; comparative / molecular evolution
+6,2010,Simulated paper 6,Journal 2,Line 2,Heme Hibana; Focal Researcher; Nile Tecesa,Partner country; Home,Nile Tecesa,,theory & modelling
+7,2010,Simulated paper 7,Journal 1,Line 1,Focal Researcher; Heme Hibana,Home,Heme Hibana,,theory & modelling; comparative / molecular evolution
+8,2011,Simulated paper 8,Journal 6,Line 1,Heme Hibana; Focal Researcher,Home,Focal Researcher,,theory & modelling
+9,2011,Simulated paper 9,Journal 1,Line 2,Focal Researcher,Partner country; Home,Focal Researcher,,theory & modelling; comparative / molecular evolution
+10,2011,Simulated paper 10,Journal 1,Line 1,Heme Hibana; Focal Researcher; Nile Tecesa,Home; Third,Nile Tecesa,,theory & modelling
+11,2011,Simulated paper 11,Journal 1,Line 1,Focal Researcher; Heme Hibana,Partner country; Home,Focal Researcher,,theory & modelling; comparative / molecular evolution
+12,2012,Simulated paper 12,Journal 3,Line 2,Nile Tecesa; Focal Researcher,Home,Focal Researcher,,theory & modelling
+13,2012,Simulated paper 13,Journal 2,Line 1,Focal Researcher,Home,Focal Researcher,,theory & modelling; comparative / molecular evolution
+14,2012,Simulated paper 14,Journal 1,Line 1,Heme Hibana; Focal Researcher,Home,Focal Researcher,,theory & modelling
+15,2013,Simulated paper 15,Journal 1,Line 1,Focal Researcher; Heme Hibana,Partner country; Home,Heme Hibana,,theory & modelling
+16,2013,Simulated paper 16,Journal 1,Line 1,Focal Researcher; Heme Hibana; Kose Riguke,Home,Kose Riguke,,theory & modelling
+17,2013,Simulated paper 17,Journal 1,Line 1,Focal Researcher; Heme Hibana; Fevo Kolica,Home,Focal Researcher,,theory & modelling
+18,2014,Simulated paper 18,Journal 2,Line 1,Heme Hibana; Focal Researcher,Home,Focal Researcher,,theory & modelling
+19,2014,Simulated paper 19,Journal 1,Line 2,Focal Researcher; Heme Hibana; Fevo Kolica,Home,Fevo Kolica,,theory & modelling
+20,2015,Simulated paper 20,Journal 1,Line 2,Focal Researcher; Kose Riguke,Home,Focal Researcher,,theory & modelling
+21,2016,Simulated paper 21,Journal 1,Line 1,Focal Researcher; Heme Hibana,Home; Third,Heme Hibana,,theory & modelling
+22,2017,Simulated paper 22,Journal 3,Line 2,Focal Researcher; Nile Tecesa; Kose Riguke,Home,Kose Riguke,,theory & modelling
+23,2017,Simulated paper 23,Journal 1,Line 1,Focal Researcher; Heme Hibana; Tidi Moride,Home,Tidi Moride,,theory & modelling
+24,2017,Simulated paper 24,Journal 1,Line 2,Heme Hibana; Nile Tecesa; Focal Researcher,Home,Focal Researcher,,theory & modelling
+25,2018,Simulated paper 25,Journal 1,Line 2,Focal Researcher; Heme Hibana,Home,Heme Hibana,,theory & modelling
+26,2018,Simulated paper 26,Journal 5,Line 1,Remu Fibupi; Focal Researcher; Heme Hibana,Home; Third,Heme Hibana,,theory & modelling
+27,2018,Simulated paper 27,Journal 1,Line 1,Heme Hibana; Focal Researcher,Home,Focal Researcher,,theory & modelling
+28,2019,Simulated paper 28,Journal 3,Line 2,Heme Hibana; Focal Researcher,Home,Focal Researcher,,theory & modelling
+29,2019,Simulated paper 29,Journal 1,Line 1,Focal Researcher; Heme Hibana,Home,Focal Researcher,,theory & modelling
+30,2019,Simulated paper 30,Journal 3,Line 1,Focal Researcher; Tidi Moride,Home,Tidi Moride,,theory & modelling
+31,2019,Simulated paper 31,Journal 1,Line 2,Heme Hibana; Tidi Moride; Focal Researcher,Home,Focal Researcher,,theory & modelling
+32,2019,Simulated paper 32,Journal 1,Line 1,Heme Hibana; Nile Tecesa; Focal Researcher,Home,Focal Researcher,,theory & modelling; comparative / molecular evolution
+33,2019,Simulated paper 33,Journal 2,Line 1,Focal Researcher; Heme Hibana; Nile Tecesa,Home,Focal Researcher,,theory & modelling
+34,2020,Simulated paper 34,Journal 6,Line 1,Kose Riguke; Focal Researcher,Partner country; Home,Focal Researcher,,theory & modelling
+35,2020,Simulated paper 35,Journal 3,Line 1,Heme Hibana; Tali Nemufa; Focal Researcher,Home,Focal Researcher,,theory & modelling
+36,2021,Simulated paper 36,Journal 3,Line 2,Heme Hibana; Focal Researcher,Home,Focal Researcher,,theory & modelling; comparative / molecular evolution
+37,2021,Simulated paper 37,Journal 1,Line 1,Selo Tahosi; Heme Hibana; Focal Researcher,Home,Focal Researcher,,theory & modelling
+38,2021,Simulated paper 38,Journal 1,Line 1,Focal Researcher; Heme Hibana,Partner country; Home,Heme Hibana,,theory & modelling
+39,2021,Simulated paper 39,Journal 2,Line 1,Focal Researcher,Home; Third,Focal Researcher,,theory & modelling
+40,2023,Simulated paper 40,Journal 1,Line 1,Focal Researcher; Heme Hibana; Tidi Moride,Home,Tidi Moride,,theory & modelling
+41,2023,Simulated paper 41,Journal 1,Line 1,Heme Hibana; Nile Tecesa; Focal Researcher,Partner country; Home,Focal Researcher,,theory & modelling; comparative / molecular evolution
+42,2023,Simulated paper 42,Journal 3,Line 1,Heme Hibana; Focal Researcher,Home; Third,Focal Researcher,,theory & modelling
+43,2024,Simulated paper 43,Journal 1,Line 1,Focal Researcher; Heme Hibana,Home; Third,Heme Hibana,,theory & modelling
+44,2025,Simulated paper 44,Journal 1,Line 1,Heme Hibana; Zovu Kivudu; Focal Researcher,Home,Focal Researcher,,theory & modelling
+45,2025,Simulated paper 45,Journal 1,Line 1,Heme Hibana; Focal Researcher,Home,Focal Researcher,,theory & modelling
+46,2025,Simulated paper 46,Journal 1,Line 1,Focal Researcher,Home; Third,Focal Researcher,,theory & modelling
+47,2025,Simulated paper 47,Journal 1,Line 1,Focal Researcher; Heme Hibana,Home; Third,Heme Hibana,,theory & modelling
+48,2026,Simulated paper 48,Journal 2,Line 1,Heme Hibana; Focal Researcher,Home,Focal Researcher,,theory & modelling; comparative / molecular evolution
+49,2026,Simulated paper 49,Journal 3,Line 1,Focal Researcher; Heme Hibana,Home,Heme Hibana,,theory & modelling
+50,2026,Simulated paper 50,Journal 1,Line 1,Focal Researcher; Heme Hibana,Partner country; Home,Focal Researcher,,theory & modelling
