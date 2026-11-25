@@ -125,6 +125,24 @@ def _is_preprint(doi, cr_type=None):
     return d.startswith(PREPRINT_PREFIXES) or bool(BIORXIV.match(d))
 
 
+def check_orcid(text):
+    """Return the ORCID iD in canonical form (0000-0000-0000-000X), or raise ValueError
+    with a readable message. Accepts the bare iD, an orcid.org URL, or 16 characters without dashes."""
+    s = re.sub(r"^\s*(https?://)?(www\.)?orcid\.org/", "", str(text or "").strip(), flags=re.I)
+    s = s.replace(" ", "").replace("-", "").upper()
+    if not re.fullmatch(r"\d{15}[\dX]", s):
+        raise ValueError(f"'{text}' is not an ORCID iD. An ORCID iD has 16 characters in four "
+                         "blocks, e.g. 0000-0002-1825-0097 (the last one may be X).")
+    total = 0
+    for ch in s[:15]:
+        total = (total + int(ch)) * 2
+    r = (12 - total % 11) % 11
+    if s[15] != ("X" if r == 10 else str(r)):
+        raise ValueError(f"'{text}' is not a valid ORCID iD: the check digit does not match. "
+                         "Please check for a typing error.")
+    return "-".join(s[i:i + 4] for i in range(0, 16, 4))
+
+
 def from_orcid(orcid, mailto="", include_preprints=False):
     """Read the works on a public ORCID record and fetch their author lists from Crossref.
 

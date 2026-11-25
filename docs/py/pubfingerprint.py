@@ -624,6 +624,11 @@ def main():
                          "sharing co-authors (default: subfield)")
     ap.add_argument("--include-preprints", action="store_true", help="ORCID mode: keep preprints (default: peer-reviewed only)")
     a = ap.parse_args()
+    if a.orcid:
+        try:
+            a.orcid = pm.check_orcid(a.orcid)
+        except ValueError as e:
+            sys.exit(str(e))
     a.out = a.out or (f"results/{a.orcid}/{a.orcid}" if a.orcid else "results/fingerprint")
     name = a.name
     if a.csv:
@@ -631,7 +636,6 @@ def main():
             ap.error("--me is required with --csv")
         papers = read(a.csv)
     else:
-        a.orcid = a.orcid.strip().replace("https://orcid.org/", "")
         display, variants, family = pm.orcid_names(a.orcid, a.mailto)
         papers = pm.from_orcid(a.orcid, a.mailto, a.include_preprints)
         if not papers:

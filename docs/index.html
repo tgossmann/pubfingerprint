@@ -63,7 +63,7 @@
   <form id="f" autocomplete="on">
     <div class="row">
       <label>ORCID iD
-        <input id="orcid" type="text" placeholder="0000-0002-1825-0097" required pattern="\s*(https?://orcid\.org/)?\d{4}-\d{4}-\d{4}-\d{3}[\dXx]\s*">
+        <input id="orcid" type="text" placeholder="0000-0002-1825-0097" autocomplete="off" spellcheck="false" aria-describedby="status">
       </label>
       <label>Your e-mail (optional; sent only to OpenAlex, which asks for it)
         <input id="mailto" type="email" placeholder="you@university.edu">
@@ -170,11 +170,28 @@ function start(orcid, demo) {
   worker.onerror = (e) => { setStatus("The browser could not start the analysis: " + (e.message || e), false, true); $("go").disabled = false; $("demo").disabled = false; };
   worker.postMessage({ orcid, demo, mailto: $("mailto").value.trim(), includePreprints: $("pre").checked });
 }
+// ORCID iDs end in an ISO 7064 MOD 11-2 check digit, so most typing errors can be caught here.
+function checkOrcid(text) {
+  const raw = String(text || "").trim();
+  if (!raw) return { error: "Please enter an ORCID iD, for example 0000-0002-1825-0097." };
+  const s = raw.replace(/^(https?:\/\/)?(www\.)?orcid\.org\//i, "").replace(/[\s-]/g, "").toUpperCase();
+  if (!/^\d{15}[\dX]$/.test(s))
+    return { error: `“${raw}” is not an ORCID iD. An ORCID iD has 16 characters in four blocks, for example 0000-0002-1825-0097 (the last one may be X).` };
+  let total = 0;
+  for (const ch of s.slice(0, 15)) total = (total + Number(ch)) * 2;
+  const r = (12 - (total % 11)) % 11;
+  if (s[15] !== (r === 10 ? "X" : String(r)))
+    return { error: `“${raw}” is not a valid ORCID iD: the check digit does not match. Please check for a typing error.` };
+  return { id: s.match(/.{4}/g).join("-") };
+}
+
 $("f").addEventListener("submit", (e) => {
   e.preventDefault();
-  const m = $("orcid").value.match(/\d{4}-\d{4}-\d{4}-\d{3}[\dXx]/);
-  if (!m) { setStatus("Please enter an ORCID iD such as 0000-0002-1825-0097.", false, true); return; }
-  start(m[0].toUpperCase(), false);
+  const res = checkOrcid($("orcid").value);
+  if (res.error) { setStatus(res.error, false, true); $("orcid").setAttribute("aria-invalid", "true"); $("orcid").focus(); return; }
+  $("orcid").removeAttribute("aria-invalid");
+  $("orcid").value = res.id;
+  start(res.id, false);
 });
 $("demo").addEventListener("click", () => { $("orcid").value = "0000-0001-6609-4116"; start("0000-0001-6609-4116", true); });
 </script>
