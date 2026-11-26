@@ -157,7 +157,7 @@ def plot_roles(rec, out):
     a.set_xlim(0, 130); a.set_xticks([0, 25, 50, 75, 100]); a.grid(axis="y", visible=False)
     a.set_xlabel("Share of papers in the period (%)")
     a.legend(fontsize=6.5, ncol=3, loc="lower center", bbox_to_anchor=(0.4, 1.0), frameon=False)
-    fig.savefig(out + "_roles.png", bbox_inches="tight"); fig.savefig(out + "_roles.pdf", bbox_inches="tight"); plt.close(fig)
+    _save(fig, out + "_roles")
     return rows
 
 
@@ -400,11 +400,24 @@ def pm_graph(papers, links):
 
 
 # ------------------------------------------------------------------ plots
+# Output settings; the web version lowers these to keep phones fast
+FIG_FORMATS = ("png", "pdf")   # per-figure files (the one-file profile PDF is always written)
+PNG_DPI = 300
+RARE_REPS = 200                # random subsets per record size in the rarefaction curves
+
+
+def _save(fig, base):
+    import matplotlib.pyplot as plt
+    for ext in FIG_FORMATS:
+        fig.savefig(f"{base}.{ext}", bbox_inches="tight")
+    plt.close(fig)
+
+
 def _style():
     import matplotlib as mpl
     mpl.rcParams.update({"font.family": "DejaVu Sans", "font.size": 8.5, "axes.spines.top": False, "axes.spines.right": False,
                          "axes.edgecolor": "#8a8985", "xtick.color": INK2, "ytick.color": INK2, "axes.grid": True,
-                         "grid.color": "#e6e5e1", "grid.linewidth": 0.6, "axes.axisbelow": True, "savefig.dpi": 300,
+                         "grid.color": "#e6e5e1", "grid.linewidth": 0.6, "axes.axisbelow": True, "savefig.dpi": PNG_DPI,
                          "legend.frameon": False})
 
 
@@ -425,7 +438,7 @@ def plot_fingerprint(rec, out):
     a.set_yticks(range(len(rows))); a.set_yticklabels([l for l, _ in rows][::-1])
     a.set_xlim(0, 108); a.set_xticks([0, 25, 50, 75, 100]); a.grid(axis="y", visible=False)
     a.set_xlabel("Share (%) — each row is a composition, not a score")
-    fig.savefig(out + "_fingerprint.png", bbox_inches="tight"); fig.savefig(out + "_fingerprint.pdf", bbox_inches="tight"); plt.close(fig)
+    _save(fig, out + "_fingerprint")
 
 
 def plot_diversity(rec, out, rare=None):
@@ -449,7 +462,7 @@ def plot_diversity(rec, out, rare=None):
                        Line2D([], [], marker="o", ls="", color=C[0], label="Effective number, Shannon (q = 1)"),
                        Line2D([], [], marker="D", ls="", color=C[1], label="Effective number, Simpson (q = 2)")],
               fontsize=6.8, loc="lower right")
-    fig.savefig(out + "_diversity.png", bbox_inches="tight"); fig.savefig(out + "_diversity.pdf", bbox_inches="tight"); plt.close(fig)
+    _save(fig, out + "_diversity")
 
 
 def plot_rarefaction(rec, out, dims=None):
@@ -461,7 +474,7 @@ def plot_rarefaction(rec, out, dims=None):
     fig, axs = plt.subplots(1, 2, figsize=(7.4, 3.3), gridspec_kw=dict(wspace=0.28))
     res = {}
     for k, d in enumerate(dims):
-        r = rec.rarefy(d, sizes); res[d] = r; col = C[k % len(C)]
+        r = rec.rarefy(d, sizes, RARE_REPS); res[d] = r; col = C[k % len(C)]
         x = [e["papers"] for e in r]
         axs[0].fill_between(x, [e["q1_lo"] for e in r], [e["q1_hi"] for e in r], color=col, alpha=0.15, lw=0)
         axs[0].plot(x, [e["q1"] for e in r], color=col, lw=2, label=d)
@@ -476,7 +489,7 @@ def plot_rarefaction(rec, out, dims=None):
     tick = [i + 1 for i in year_ticks(yrs, 8)]
     sec = axs[1].secondary_xaxis("top"); sec.set_xticks(tick); sec.set_xticklabels([yrs[t - 1] for t in tick], fontsize=6)
     axs[0].legend(fontsize=6.3, loc="upper left")
-    fig.savefig(out + "_rarefaction.png", bbox_inches="tight"); fig.savefig(out + "_rarefaction.pdf", bbox_inches="tight"); plt.close(fig)
+    _save(fig, out + "_rarefaction")
     return res
 
 

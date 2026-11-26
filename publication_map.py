@@ -125,6 +125,11 @@ def _is_preprint(doi, cr_type=None):
     return d.startswith(PREPRINT_PREFIXES) or bool(BIORXIV.match(d))
 
 
+# Output settings; the web version lowers these to keep phones fast (results are unchanged)
+MAP_FORMATS = ("png", "pdf", "svg")
+PNG_DPI = 300
+
+
 def check_orcid(text):
     """Return the ORCID iD in canonical form (0000-0000-0000-000X), or raise ValueError
     with a readable message. Accepts the bare iD, an orcid.org URL, or 16 characters without dashes."""
@@ -394,7 +399,7 @@ def draw_lines(papers, links, out, centre=None):
     edges = pairs of papers in two lines that share a co-author other than you (width ~ log count).
     The ring of a node shows the share of links that stay within the line."""
     import matplotlib as mpl, matplotlib.pyplot as plt
-    mpl.rcParams.update({"font.family": "DejaVu Sans", "savefig.dpi": 300})
+    mpl.rcParams.update({"font.family": "DejaVu Sans", "savefig.dpi": PNG_DPI})
     counts = Counter(p["line"] for p in papers)
     order = [l for l, _ in counts.most_common() if not l.startswith("Other")] + [l for l in counts if l.startswith("Other")]
     colour = {l: (OTHER if l.startswith("Other") or i >= len(PALETTE) else PALETTE[i]) for i, l in enumerate(order)}
@@ -431,7 +436,7 @@ def draw_lines(papers, links, out, centre=None):
             f"{len(links)} pairs of papers share a co-author other than you;\n{cross} of them connect two lines "
             f"(grey bands, width \u221d log number of pairs). Large record: lines are shown instead of single papers.",
             fontsize=6.4, color=INK2, va="bottom")
-    for ext in ("png", "pdf", "svg"):
+    for ext in MAP_FORMATS:
         fig.savefig(f"{out}.{ext}", bbox_inches="tight")
     plt.close(fig)
     print(f"Wrote {out}.png/.pdf/.svg (line-level map: {len(papers)} papers, {len(order)} lines, {cross} links across lines).")
@@ -440,7 +445,7 @@ def draw_lines(papers, links, out, centre=None):
 def draw(papers, links, out, title=None, centre=None, label_years=True):
     import matplotlib as mpl, matplotlib.pyplot as plt
     from matplotlib.patches import FancyArrowPatch
-    mpl.rcParams.update({"font.family": "DejaVu Sans", "savefig.dpi": 300})
+    mpl.rcParams.update({"font.family": "DejaVu Sans", "savefig.dpi": PNG_DPI})
     counts = Counter(p["line"] for p in papers)
     order = [l for l, _ in counts.most_common() if l not in ("Unconnected papers", "Unassigned")]
     if len(order) > len(PALETTE):  # fold small lines into "Other"
@@ -501,7 +506,7 @@ def draw(papers, links, out, title=None, centre=None, label_years=True):
         ax.set_title(title, fontsize=11, fontweight="bold", loc="left")
     import os
     os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
-    for ext in ("png", "pdf", "svg"):
+    for ext in MAP_FORMATS:
         fig.savefig(f"{out}.{ext}", bbox_inches="tight")
     plt.close(fig)
     with open(f"{out}_links.csv", "w", newline="", encoding="utf-8") as f:

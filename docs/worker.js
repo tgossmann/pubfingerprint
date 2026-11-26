@@ -2,12 +2,16 @@
 // Data are fetched from the public ORCID and OpenAlex APIs; nothing is sent anywhere else or stored.
 const PYODIDE = "https://cdn.jsdelivr.net/pyodide/v0.26.4/full/";
 importScripts(PYODIDE + "pyodide.js");
-let py = null;
-const say = (msg) => postMessage({ type: "status", msg });
+let py = null, booting = null, busy = false, ready = false;
+const say = (msg) => { if (busy) postMessage({ type: "status", msg }); };
 
-async function init() {
-  if (py) return py;
-  say("Loading Python in your browser (first time ~20 s, then cached)…");
+// init() is started as soon as the visitor starts typing, so Python usually loads while they enter the iD
+function init() {
+  if (!booting) booting = boot().catch((e) => { booting = null; throw e; });
+  return booting;
+}
+
+async function boot() {
   py = await loadPyodide({ indexURL: PYODIDE });
   await py.loadPackage(["numpy", "matplotlib", "networkx"]);
   for (const f of ["publication_map.py", "pubfingerprint.py", "web_adapter.py"]) {
@@ -22,7 +26,11 @@ os.environ["MPLBACKEND"] = "AGG"
 import matplotlib; matplotlib.use("Agg")
 sys.path.insert(0, ".")
 import publication_map as pm, pubfingerprint as pf, web_adapter as wa
+# The browser only shows PNGs and offers the one-file PDF, so skip the extra formats and use screen resolution.
+# This changes no number: only which files are written and how sharp the PNGs are.
+pf.FIG_FORMATS = ("png",); pm.MAP_FORMATS = ("png",); pf.PNG_DPI = pm.PNG_DPI = 150
 `);
+  ready = true;
   return py;
 }
 
@@ -59,9 +67,12 @@ async function getOrcid(url, orcid) {
 }
 
 onmessage = async (ev) => {
-  const { orcid, mailto, includePreprints, demo } = ev.data;
+  if (ev.data.type === "warm") { init().catch(() => {}); return; }   // preload; errors are reported on the real run
+  const { orcid, mailto, includePreprints, demo, phone } = ev.data;
+  busy = true;
   try {
-    const py = await init();
+    if (!ready) say("Loading Python in your browser (first time: about 30 MB, then cached)…");
+    await init();
     const H = { Accept: "application/json" };
     say(demo ? "Loading the example record…" : "Reading the ORCID record…");
     const person = demo ? await getJSON("demo/person.json") : await getOrcid(`https://pub.orcid.org/v3.0/${orcid}/person`, orcid);
@@ -72,6 +83,8 @@ onmessage = async (ev) => {
     const dois = py.runPython("import json; json.dumps(wa.all_dois(json.loads(works_json)))");
     const list = JSON.parse(dois);
     if (!list.length) throw new Error(`The ORCID record ${orcid} lists works, but none of them has a DOI. The profile is built from DOIs, so add them to the works on ORCID and try again.`);
+    if (phone && list.length > 150)
+      postMessage({ type: "note", msg: `This record has ${list.length} works. On a phone a record this large can take several minutes, and some phones run out of memory; a laptop or desktop is faster.` });
     const oa = demo ? await getJSON("demo/openalex.json") : [];
     const sel = "id,doi,title,publication_year,type,authorships,primary_topic,primary_location";
     let failed = 0;
@@ -90,6 +103,7 @@ onmessage = async (ev) => {
     py.globals.set("oa_json", JSON.stringify(oa));
     py.globals.set("orcid", orcid);
     py.globals.set("incl", !!includePreprints);
+    py.globals.set("say", say);
     const report = await py.runPythonAsync(`
 import json, io, contextlib, os
 papers, me, display, report = wa.build_papers(orcid, json.loads(person_json), json.loads(works_json), json.loads(oa_json), incl)
@@ -100,6 +114,17 @@ for f in os.listdir("/out"):
     os.remove("/out/" + f)
 out = "/out/" + orcid
 pm.write_csv(papers, out + "_from_orcid.csv")
+_steps = [("plot_fingerprint", "Drawing the composition…"), ("plot_diversity", "Computing diversity…"),
+          ("plot_rarefaction", "Comparing at equal record size (rarefaction; the slowest step)…"),
+          ("plot_roles", "Roles by career period…"), ("plot_sheet", "Writing the one-file PDF profile…")]
+for _name, _msg in _steps:
+    _f = getattr(pf, "_orig_" + _name, None) or getattr(pf, _name)
+    setattr(pf, "_orig_" + _name, _f)
+    setattr(pf, _name, (lambda f, m: (lambda *a, **k: (say(m), f(*a, **k))[1]))(_f, _msg))
+_draw = getattr(pm, "_orig_draw", None) or pm.draw; pm._orig_draw = _draw
+pm.draw = lambda *a, **k: (say("Drawing the connection map…"), _draw(*a, **k))[1]
+_dl = getattr(pm, "_orig_draw_lines", None) or pm.draw_lines; pm._orig_draw_lines = _dl
+pm.draw_lines = lambda *a, **k: (say("Drawing the connection map…"), _dl(*a, **k))[1]
 buf = io.StringIO()
 with contextlib.redirect_stdout(buf):
     rec, res = pf.run(papers, me, out, None, True, name=display, source=f"ORCID {orcid} via OpenAlex")
@@ -116,8 +141,10 @@ json.dumps(report)
       if (f.startsWith(".")) continue;
       files[f] = py.FS.readFile("/out/" + f);
     }
+    busy = false;
     postMessage({ type: "done", report: JSON.parse(report), files });
   } catch (e) {
+    busy = false;
     postMessage({ type: "error", msg: String(e.message || e).split("\n").filter(Boolean).slice(-1)[0] });
   }
 };

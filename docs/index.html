@@ -29,6 +29,7 @@
   .fine { font-size: 13px; color: var(--muted); margin: 0; }
   #status { margin: 18px 2px; min-height: 24px; color: var(--ink2); display: flex; gap: 10px; align-items: center; }
   #status.err { color: #b3261e; }
+  #note { display: none; margin: 4px 2px 0; padding: 10px 12px; border-radius: 8px; background: #f6f1e4; color: var(--ink2); font-size: 14px; }
   .spin { width: 16px; height: 16px; border: 2px solid #cfcdc7; border-top-color: var(--accent); border-radius: 50%; animation: s 0.9s linear infinite; }
   @keyframes s { to { transform: rotate(360deg); } }
   #out { display: none; }
@@ -79,6 +80,7 @@
       their open APIs; nothing is sent to us or stored.</p>
   </form>
 
+  <div id="note" role="note"></div>
   <div id="status"></div>
 
   <div id="out">
@@ -157,18 +159,35 @@ function show(rep, files, orcid) {
   $("out").style.display = "block";
 }
 
+// Phones and tablets: Python is downloaded once (about 30 MB) and the calculation runs on the device
+const PHONE = (navigator.userAgentData && navigator.userAgentData.mobile) ||
+  /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) ||
+  (navigator.maxTouchPoints > 1 && /Macintosh/.test(navigator.userAgent));   // iPadOS reports itself as a Mac
+function note(msg) { $("note").textContent = msg; $("note").style.display = msg ? "block" : "none"; }
+if (PHONE) note("On a phone or tablet the first run is slower: Python (about 30 MB) is downloaded once and everything is computed on the device. Wi-Fi helps; a laptop is faster for large records.");
+
+// Start loading Python as soon as someone shows intent, so it is (nearly) ready when they press the button
+function warm() {
+  if (worker) return;
+  worker = new Worker("worker.js");
+  worker.postMessage({ type: "warm" });
+}
+for (const ev of ["focus", "input", "pointerdown"]) $("orcid").addEventListener(ev, warm, { once: true });
+$("demo").addEventListener("pointerenter", warm, { once: true });
+
 function start(orcid, demo) {
   $("go").disabled = true; $("demo").disabled = true; $("out").style.display = "none";
-  if (!worker) worker = new Worker("worker.js");
+  warm();
   const t0 = Date.now();
   worker.onmessage = (ev) => {
     const d = ev.data;
     if (d.type === "status") setStatus(d.msg);
+    else if (d.type === "note") note(d.msg);
     else if (d.type === "done") { setStatus(`Done in ${Math.round((Date.now() - t0) / 1000)} s.`, false); show(d.report, d.files, orcid); $("go").disabled = false; $("demo").disabled = false; }
     else if (d.type === "error") { setStatus("Something went wrong: " + d.msg, false, true); $("go").disabled = false; $("demo").disabled = false; }
   };
   worker.onerror = (e) => { setStatus("The browser could not start the analysis: " + (e.message || e), false, true); $("go").disabled = false; $("demo").disabled = false; };
-  worker.postMessage({ orcid, demo, mailto: $("mailto").value.trim(), includePreprints: $("pre").checked });
+  worker.postMessage({ orcid, demo, phone: !!PHONE, mailto: $("mailto").value.trim(), includePreprints: $("pre").checked });
 }
 // ORCID iDs end in an ISO 7064 MOD 11-2 check digit, so most typing errors can be caught here.
 function checkOrcid(text) {
